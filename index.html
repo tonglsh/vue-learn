@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="./vue.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        <div id="left-title">
+            {{message}}
+        </div>
+        <button onclick="change()">touch it</button>
+
+        <script type="text/javascript">
+            var leftTitle = new Vue({
+                el: '#left-title',
+                data: {
+                    message: 'hello world'
+                }
+            })
+            leftTitle.$watch('message',function(newVal,oldVal){
+                console.log('pre',oldVal,'now',newVal)
+            })
+            function change() {
+                leftTitle.message += 'baby1'
+            }
+        </script>
+    </body>
+</html>
